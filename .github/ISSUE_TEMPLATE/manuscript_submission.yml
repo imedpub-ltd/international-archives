@@ -1,0 +1,91 @@
+name: "Manuscript Submission (Phase 1 & Phase 2)"
+description: "Submit a new scientific manuscript or preprint for automated screening and peer-review."
+title: "[SUBMISSION]: "
+labels: ["submission", "phase-1-pending"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### iMedPub Editorial Submission
+        Welcome to the Diamond Open Access editorial portal. Submissions undergo instant AI & reproducibility screening (Phase 1) with optional formal peer review for iMedPub journal publication (Phase 2).
+  - type: input
+    id: manuscript_title
+    attributes:
+      label: Manuscript Title
+      description: "Must describe the scientific findings. Do NOT cite external journal names, years, or authors in the title."
+      placeholder: "e.g. Functional Heritability Partitioning Across Alzheimer Disease Risk Loci"
+    validations:
+      required: true
+  - type: textarea
+    id: authors_affiliations
+    attributes:
+      label: Authors, Affiliations and ORCIDs
+      description: "List all authors, institutions, and ORCID identifiers (e.g. 0000-0002-1825-0097)."
+      placeholder: "Manuel Menéndez-González (HUCA, ORCID: 0000-0002-1825-0097)"
+    validations:
+      required: true
+  - type: textarea
+    id: abstract
+    attributes:
+      label: Abstract
+      description: "Comprehensive summary of background, methods, results, and conclusions."
+    validations:
+      required: true
+  - type: dropdown
+    id: track
+    attributes:
+      label: Scientific Track
+      options:
+        - "Computational Neuroscience & Precision Medicine"
+        - "Functional Genomics & Transcriptomics"
+        - "Translational Biomarkers & Clinical Neuropathology"
+        - "Data Science & Biostatistics"
+    validations:
+      required: true
+  - type: dropdown
+    id: target_tier
+    attributes:
+      label: Publication Track
+      options:
+        - "Phase 1 Only: Diamond Open Access Preprint (Zenodo DOI / 0€)"
+        - "Phase 1 + Phase 2: Preprint + Formal Journal Review (iMedPub Crossref 10.3823)"
+    validations:
+      required: true
+  - type: dropdown
+    id: target_journal
+    attributes:
+      label: Target Journal (for Phase 2 Review)
+      description: "Select which International Archives journal to submit to upon passing Phase 1 preprint screening."
+      options:
+        - "International Archives of Neurology & Neuroscience (IAneuro) — Brain & Cognitive Sciences"
+        - "International Archives of Medicine (IAmed) — Clinical & Health Sciences"
+        - "International Archives (IA) — Multidisciplinary & Computable Sciences"
+    validations:
+      required: true
+  - type: input
+    id: code_data_repo
+    attributes:
+      label: Code & Data Repository URL
+      description: "Must be an openly accessible public repository (HTTP 200 without authentication)."
+      placeholder: "https://github.com/organization/reproducible-pipeline"
+    validations:
+      required: true
+  - type: textarea
+    id: guest_declaration
+    attributes:
+      label: AI Assistance Transparency (GUEST Framework)
+      description: "Declare if and how AI tools (EdiTXT, LLMs, automated agents) were utilized in analysis or manuscript preparation."
+      value: "AI tools were used for: "
+    validations:
+      required: true
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Editorial Declarations
+      options:
+        - label: "I confirm all data and code repositories cited are publicly accessible without authentication."
+          required: true
+        - label: "I confirm all empirical claims correspond to verified computational execution traces."
+          required: true
+        - label: "I agree to publish under Creative Commons Attribution 4.0 International (CC BY 4.0)."
+          required: true

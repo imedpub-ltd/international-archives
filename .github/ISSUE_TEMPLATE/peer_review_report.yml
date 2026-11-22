@@ -1,0 +1,54 @@
+name: "Peer Review Report (Phase 2 Centaur Review)"
+description: "Submit an expert peer review report for an assigned manuscript."
+title: "[REVIEW]: "
+labels: ["peer-review", "review-received"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### Expert Peer Review Report (iMedPub Limited)
+        Thank you for contributing to open, accountable scientific arbitration. Reviews are published alongside the paper with a persistent DOI.
+  - type: input
+    id: manuscript_reference
+    attributes:
+      label: Manuscript ID or PR Link
+      placeholder: "e.g. PR #14 / Manuscript BIN1-001"
+    validations:
+      required: true
+  - type: input
+    id: reviewer_name_orcid
+    attributes:
+      label: Reviewer Name, Affiliation and ORCID
+      placeholder: "Dr. Jane Doe, Department of Neurobiology, University X (ORCID: 0000-0001-...)"
+    validations:
+      required: true
+  - type: textarea
+    id: substantive_evaluation
+    attributes:
+      label: Substantive Scientific Evaluation
+      description: "Assess scientific novelty, biological relevance, soundness of methodological design, and validity of conclusions."
+    validations:
+      required: true
+  - type: textarea
+    id: data_code_audit
+    attributes:
+      label: Data & Code Reproducibility Observations
+      description: "Comment on whether the public code and data capsules adequately support the claims."
+    validations:
+      required: true
+  - type: textarea
+    id: required_revisions
+    attributes:
+      label: Required Revisions or Clarifications
+      description: "List specific, actionable points the authors must address before acceptance."
+  - type: dropdown
+    id: recommendation
+    attributes:
+      label: Final Editorial Recommendation
+      options:
+        - "ACCEPT (Publish without further major revisions)"
+        - "MINOR_REVISION (Address specific textual or methodological clarifications)"
+        - "MAJOR_REVISION (Requires additional data analysis or substantial restructuring)"
+        - "REJECT (Fundamental methodological or empirical invalidity)"
+    validations:
+      required: true

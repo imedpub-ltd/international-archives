@@ -1,0 +1,24 @@
+name: "Preprint & Article Discussion"
+description: "Start a community discussion, replication report, or commentary on a published preprint or article."
+title: "[DISCUSSION]: "
+labels: ["community-discussion"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### Open Peer Review & Community Commentary (alphaXiv Style)
+        Engage with authors and the broader community on verified preprints and peer-reviewed articles.
+  - type: input
+    id: article_doi
+    attributes:
+      label: Article DOI or URL
+      placeholder: "e.g. 10.3823/imedpub.neuro.2026.001 or 10.5281/zenodo.14205821"
+    validations:
+      required: true
+  - type: textarea
+    id: commentary
+    attributes:
+      label: Comments, Replications, or Questions
+      description: "Provide line-by-line feedback, independent validation results, or questions for the authors."
+    validations:
+      required: true
